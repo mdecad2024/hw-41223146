@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='W1作業(上字幕).html'>W1作業(上字幕)</a><li><a href='HW1_Exam.html'>HW1_Exam</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='HW2_Exam.html'>HW2_Exam</a></li></ul><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='W3作業(solvespace繪圖).html'>W3作業(solvespace繪圖)</a><li><a href='HW3_Exam.html'>HW3_Exam</a></li></ul><li class='has-children'><a href='HW4.html'>HW4</a><ul class='dropdown'><li><a href='HW4_Exam.html'>HW4_Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='W1作業(上字幕).html'>W1作業(上字幕)</a><li><a href='HW1_Exam.html'>HW1_Exam</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='HW2_Exam.html'>HW2_Exam</a></li></ul><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='W3作業(solvespace繪圖).html'>W3作業(solvespace繪圖)</a><li><a href='HW3_Exam.html'>HW3_Exam</a></li></ul><li class='has-children'><a href='HW4.html'>HW4</a><ul class='dropdown'><li><a href='HW4_Exam.html'>HW4_Exam</a><li><a href='H4作業.html'>H4作業</a></li></ul><li><a href='Final Report.html'>Final Report</a></li>
                       </ul>
                 </nav>
               </div>
@@ -155,7 +155,67 @@ img.add_border {
 <p style="padding-left: 30px;">....</p>
 <p>HW4 自評分數:</p>
 <p style="padding-left: 30px;">完成上述流程後, 請將 HW4 自評分數輸入 cad2024 自評表單中.</p>
-<br />HW3_Exam << <a href='HW3_Exam.html'>Previous</a> <a href='HW4_Exam.html'>Next</a> >> HW4_Exam</div>
+<script type="text/javascript">
+var viewers = [];
+
+function getOptions(){
+    var mc = document.getElementById("mdlClr").value;
+    var bc1 = document.getElementById("bckClr1").value;
+    var bc2 = document.getElementById("bckClr2").value;
+    var ren = document.getElementById("render").value;
+    var def = document.getElementById("defini").value;
+    return {ModelColor: mc, BackgroundColor1: bc1, BackgroundColor2: bc2, RenderMode: ren, Definition: def};
+}
+
+function readSTLfile(opt, canvasId){
+    var canvas = document.getElementById(canvasId);
+    var viewer = new JSC3D.Viewer(canvas);
+    viewer.setParameter('SceneUrl', opt.SceneUrl);
+    viewer.setParameter('InitRotationX', 0);
+    viewer.setParameter('InitRotationY', 0);
+    viewer.setParameter('InitRotationZ', 0);
+    viewer.setParameter('ModelColor', opt.ModelColor);
+    viewer.setParameter('BackgroundColor1', opt.BackgroundColor1);
+    viewer.setParameter('BackgroundColor2', opt.BackgroundColor2);
+    viewer.setParameter('RenderMode', opt.RenderMode);
+    viewer.setParameter('Definition', opt.Definition);
+    viewer.init();
+    viewer.update();
+    viewers.push(viewer); // 保存 viewer 實例
+}
+
+function changeOption(strOpt,strValue){
+    console.log("change " + strOpt + " to " + strValue);
+    viewers.forEach(viewer => {
+        viewer.setParameter(strOpt, strValue);
+        viewer.init();
+        viewer.update();
+    });
+}
+
+function openByUrl(){
+    var url = document.getElementById("url").value;
+    var opt = getOptions();
+    opt.SceneUrl = url;
+    // 可以添加更多的 STL URL
+    readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
+    readSTLfile(opt, 'cv2'); // 第二個 canvas
+}
+
+function openByGet(){
+    var urls = [
+        "https://s104.cycu.org/~41223152/41223152_part1.stl",
+        "https://s104.cycu.org/~scrum1/41223199_part99.stl"
+    ];
+    var opt = getOptions();
+    urls.forEach((url, index) => {
+        opt.SceneUrl = url;
+        readSTLfile(opt, 'cv' + (index + 1)); // 動態生成 canvas ID
+    });
+}
+
+openByGet();
+</script><br />HW3_Exam << <a href='HW3_Exam.html'>Previous</a> <a href='HW4_Exam.html'>Next</a> >> HW4_Exam</div>
         
     <!-- footer -->
       <div class="container">
