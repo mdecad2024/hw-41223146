@@ -2,7 +2,7 @@
         <head>
         <title>cad_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,82 +141,8 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w16_exam2 << <a href='w16_exam2.html'>Previous</a> <a href='HW4_Exam.html'>Next</a> >> HW4_Exam<br /><h1>HW4</h1>
-<p>Homework 4 (20%):</p>
-<p style="padding-left: 30px;">建立 <a href="https://mde.tw/cad2024/content/Quadruped.html">Dingo 機器狗</a>控制系統設計模擬場景</p>
-<p style="padding-left: 30px;"><a href="https://github.com/mdecycu/DingoQuadruped">https://github.com/mdecycu/DingoQuadruped</a></p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/DINGO_QUADRUPED_CAD.7z">DINGO_QUADRUPED_CAD.7z</a></p>
-<p style="padding-left: 30px;"><img alt="" height="217" src="https://mde.tw/cad2024/images/dingo.png" width="400"/></p>
-<hr/>
-<p>利用 CoppeliaSim 建立 <a href="https://mde.tw/cad2024/content/Quadruped.html">Dingo 機器狗</a>控制系統設計模擬場景的操作過程與說明影片如下:</p>
-<p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業四</p>
-<p style="padding-left: 30px;">所完成的場景與控制程式檔案下載</p>
-<p>HW4 執行心得:</p>
-<p style="padding-left: 30px;">....</p>
-<p>HW4 自評分數:</p>
-<p style="padding-left: 30px;">完成上述流程後, 請將 HW4 自評分數輸入 cad2024 自評表單中.</p>
-<script type="text/javascript">
-var viewers = [];
-
-function getOptions(){
-    var mc = document.getElementById("mdlClr").value;
-    var bc1 = document.getElementById("bckClr1").value;
-    var bc2 = document.getElementById("bckClr2").value;
-    var ren = document.getElementById("render").value;
-    var def = document.getElementById("defini").value;
-    return {ModelColor: mc, BackgroundColor1: bc1, BackgroundColor2: bc2, RenderMode: ren, Definition: def};
-}
-
-function readSTLfile(opt, canvasId){
-    var canvas = document.getElementById(canvasId);
-    var viewer = new JSC3D.Viewer(canvas);
-    viewer.setParameter('SceneUrl', opt.SceneUrl);
-    viewer.setParameter('InitRotationX', 0);
-    viewer.setParameter('InitRotationY', 0);
-    viewer.setParameter('InitRotationZ', 0);
-    viewer.setParameter('ModelColor', opt.ModelColor);
-    viewer.setParameter('BackgroundColor1', opt.BackgroundColor1);
-    viewer.setParameter('BackgroundColor2', opt.BackgroundColor2);
-    viewer.setParameter('RenderMode', opt.RenderMode);
-    viewer.setParameter('Definition', opt.Definition);
-    viewer.init();
-    viewer.update();
-    viewers.push(viewer); // 保存 viewer 實例
-}
-
-function changeOption(strOpt,strValue){
-    console.log("change " + strOpt + " to " + strValue);
-    viewers.forEach(viewer => {
-        viewer.setParameter(strOpt, strValue);
-        viewer.init();
-        viewer.update();
-    });
-}
-
-function openByUrl(){
-    var url = document.getElementById("url").value;
-    var opt = getOptions();
-    opt.SceneUrl = url;
-    // 可以添加更多的 STL URL
-    readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
-    readSTLfile(opt, 'cv2'); // 第二個 canvas
-}
-
-function openByGet(){
-    var urls = [
-        "https://s104.cycu.org/~41223152/41223152_part1.stl",
-        "https://s104.cycu.org/~scrum1/41223199_part99.stl"
-    ];
-    var opt = getOptions();
-    urls.forEach((url, index) => {
-        opt.SceneUrl = url;
-        readSTLfile(opt, 'cv' + (index + 1)); // 動態生成 canvas ID
-    });
-}
-
-openByGet();
-</script>
-<br />w16_exam2 << <a href='w16_exam2.html'>Previous</a> <a href='HW4_Exam.html'>Next</a> >> HW4_Exam</div>
+    <div id="tipue_search_content">HW4_Exam << <a href='HW4_Exam.html'>Previous</a> <a href='H4作業.html'>Next</a> >> H4作業<br /><h1>w16_exam3</h1>
+<br />HW4_Exam << <a href='HW4_Exam.html'>Previous</a> <a href='H4作業.html'>Next</a> >> H4作業</div>
         
     <!-- footer -->
       <div class="container">
